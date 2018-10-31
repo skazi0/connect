@@ -259,14 +259,15 @@ describe SUSE::Connect::Status do
     describe '?root_fs_writable?' do
       context 'when root filesystem is readable' do
         it 'returns true' do
-          allow(subject).to receive(:system).and_return true
-          expect(subject.send(:root_fs_writable?)).to be_truthy
+          expect(subject.send(:root_fs_writable?)).to eq true
         end
       end
+
       context 'when root filesystem is readonly' do
+        before { allow_any_instance_of(File::Stat).to receive(:writable?).and_return false }
+
         it 'returns false' do
-          allow(subject).to receive(:system).and_return false
-          expect(subject.send(:root_fs_writable?)).to be_falsey
+          expect(subject.send(:root_fs_writable?)).to eq false
         end
       end
     end

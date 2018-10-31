@@ -83,7 +83,7 @@ module SUSE
       end
 
       def root_fs_writable?
-        system('test -w /')
+        File::Stat.new('/').writable?
       end
 
       def text_product_status
