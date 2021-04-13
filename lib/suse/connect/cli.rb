@@ -1,4 +1,4 @@
-require 'optparse'
+require 'optparse' unless RUBY_ENGINE == 'mruby'
 require 'suse/connect'
 
 module SUSE
@@ -96,6 +96,8 @@ module SUSE
 
       def extract_options # rubocop:disable MethodLength
         @opts = OptionParser.new
+
+        @opts.program_name = 'SUSEConnect' if RUBY_ENGINE == 'mruby'
 
         @opts.separator 'Register SUSE Linux Enterprise installations with the SUSE Customer Center.'
         @opts.separator 'Registration allows access to software repositories (including updates)'

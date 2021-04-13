@@ -1,4 +1,4 @@
-require 'net/http'
+require 'net/http' unless RUBY_ENGINE == 'mruby'
 require 'suse/toolkit/utilities'
 
 module SUSE

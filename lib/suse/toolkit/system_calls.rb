@@ -1,4 +1,4 @@
-require 'open3'
+require 'open3' unless RUBY_ENGINE == 'mruby'
 
 module SUSE
   module Toolkit

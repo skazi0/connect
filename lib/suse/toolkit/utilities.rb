@@ -2,7 +2,7 @@ module SUSE
   module Toolkit
     # utility methods
     module Utilities
-      include ::Net::HTTPHeader
+#      include ::Net::HTTPHeader
 
       def token_auth(token)
         "Token token=#{token}"

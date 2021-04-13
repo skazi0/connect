@@ -1,4 +1,4 @@
-require 'ostruct'
+require 'ostruct' unless RUBY_ENGINE == 'mruby'
 
 # Layer on top of registration server models
 class SUSE::Connect::Remote::ServerDrivenModel < OpenStruct

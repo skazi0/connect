@@ -1,5 +1,5 @@
-require 'logger'
-require 'singleton'
+require 'logger' unless RUBY_ENGINE == 'mruby'
+require 'singleton' unless RUBY_ENGINE == 'mruby'
 
 module SUSE
   module Connect

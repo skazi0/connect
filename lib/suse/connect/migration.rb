@@ -5,7 +5,8 @@ module SUSE
     # Migration class is an abstraction layer for SLE migration script
     # Migration script call this class from: https://github.com/nadvornik/zypper-migration/blob/master/zypper-migration
     class Migration
-      using SUSE::Connect::CoreExt::HashRefinement
+      #using SUSE::Connect::CoreExt::HashRefinement
+      Hash.include SUSE::Connect::CoreExt::HashRefinement
 
       class << self
         # Returns installed and activated products on the system

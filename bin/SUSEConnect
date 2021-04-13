@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib') unless RUBY_ENGINE == 'mruby'
 require 'suse/connect/cli'
 include SUSE::Connect::Logger
 
-abort 'Root privileges are required to register products and change software repositories' unless Process.uid == 0
+#abort 'Root privileges are required to register products and change software repositories' unless Process.uid == 0
 
 begin
   cli = SUSE::Connect::Cli.new(ARGV.dup)

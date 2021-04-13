@@ -1,5 +1,5 @@
-require 'optparse'
-require 'cgi'
+require 'optparse' unless RUBY_ENGINE == 'mruby'
+require 'cgi' unless RUBY_ENGINE == 'mruby'
 
 module SUSE
   module Connect

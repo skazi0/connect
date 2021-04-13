@@ -1,7 +1,7 @@
-require 'openssl'
-require 'net/http'
-require 'ostruct'
-require 'json'
+require 'openssl' unless RUBY_ENGINE == 'mruby'
+require 'net/http' unless RUBY_ENGINE == 'mruby'
+require 'ostruct' unless RUBY_ENGINE == 'mruby'
+require 'json' unless RUBY_ENGINE == 'mruby'
 
 module SUSE
   module Connect

@@ -1,5 +1,5 @@
-require 'yaml'
-require 'ostruct'
+require 'yaml' unless RUBY_ENGINE == 'mruby'
+require 'ostruct' unless RUBY_ENGINE == 'mruby'
 
 module SUSE
   module Connect

@@ -1,5 +1,5 @@
-require 'fileutils'
-require 'pathname'
+require 'fileutils' unless RUBY_ENGINE == 'mruby'
+require 'pathname' unless RUBY_ENGINE == 'mruby'
 require 'suse/toolkit/cast'
 
 module SUSE

@@ -1,3 +1,23 @@
+# mRuby POC
+
+Build mruby
+```
+# clone mruby sources
+git clone https://github.com/mruby/mruby
+cd mruby
+# copy contents of mruby directory from SUSEConnect into mruby
+cp ...
+# build mruby with dependencies
+rake
+```
+
+Run SUSEConnect (add mruby binary built above to search path first)
+```
+cd bin
+export MRBGEMS_ROOT=../lib
+mruby SUSEConnect
+```
+
 [![Build Status](https://secure.travis-ci.org/SUSE/connect.png?branch=master)](https://travis-ci.org/SUSE/connect)
 [![Dependency Status](https://gemnasium.com/SUSE/connect.svg)](https://gemnasium.com/SUSE/connect)
 [![Code Climate](https://codeclimate.com/github/SUSE/connect.png)](https://codeclimate.com/github/SUSE/connect)

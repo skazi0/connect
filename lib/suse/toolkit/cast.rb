@@ -1,5 +1,6 @@
 require 'suse/connect/core_ext/hash_refinement'
-using SUSE::Connect::CoreExt::HashRefinement
+#using SUSE::Connect::CoreExt::HashRefinement
+Hash.include SUSE::Connect::CoreExt::HashRefinement
 
 module SUSE
   module Toolkit

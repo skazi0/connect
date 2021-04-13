@@ -1,5 +1,5 @@
-require 'time'
-require 'erb'
+require 'time' unless RUBY_ENGINE == 'mruby'
+require 'erb' unless RUBY_ENGINE == 'mruby'
 require 'suse/toolkit/renderer'
 
 module SUSE

@@ -1,4 +1,4 @@
-require 'openssl'
+require 'openssl' unless RUBY_ENGINE == 'mruby'
 require 'suse/toolkit/system_calls'
 
 module SUSE

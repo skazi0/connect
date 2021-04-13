@@ -1,4 +1,4 @@
-require 'etc'
+require 'etc' unless RUBY_ENGINE == 'mruby'
 
 # When configuring a proxy with "yast2 proxy", the proxy url is written to ~/.curlrc
 # and /etc/sysconfig/proxy. The proxy credentials are only written to ~/.curlrc.

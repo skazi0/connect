@@ -1,6 +1,6 @@
-require 'rexml/document'
-require 'shellwords'
-require 'fileutils'
+require 'rexml/document' unless RUBY_ENGINE == 'mruby'
+require 'shellwords' unless RUBY_ENGINE == 'mruby'
+require 'fileutils' unless RUBY_ENGINE == 'mruby'
 require 'suse/connect/rexml_refinement'
 require 'suse/toolkit/system_calls'
 
@@ -80,7 +80,7 @@ module SUSE
         def repositories
           # Don't fail when zypper exits with 6 (no repositories)
           zypper_out = call('--xmlout --non-interactive repos -d', false, [Zypper::ExitCode::OK, Zypper::ExitCode::Error::NO_REPOS])
-          xml_doc = REXML::Document.new(zypper_out, compress_whitespace: [])
+#          xml_doc = REXML::Document.new(zypper_out, compress_whitespace: [])
           xml_doc.elements.to_a('stream/repo-list/repo').map { |r| r.to_hash.merge!(url: r.elements['url'].text) }
         end
 
@@ -121,7 +121,7 @@ module SUSE
           # Don't fail when zypper exits with 104 (no product found) or 6 (no repositories)
           zypper_out = call("--xmlout --no-refresh --non-interactive search --match-exact -s -t product #{Shellwords.escape(identifier)}", false,
                             [Zypper::ExitCode::OK, Zypper::ExitCode::Info::CAP_NOT_FOUND, Zypper::ExitCode::Error::NO_REPOS])
-          xml_doc = REXML::Document.new(zypper_out, compress_whitespace: [])
+#          xml_doc = REXML::Document.new(zypper_out, compress_whitespace: [])
           xml_doc.elements.to_a('stream/search-result/solvable-list/solvable').map(&:to_hash)
         end
 
